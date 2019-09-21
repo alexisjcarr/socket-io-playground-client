@@ -1,0 +1,35 @@
+.form {
+    display: flex;
+    flex-direction: column;
+
+    .box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+
+        .field {
+            height: 50px;
+            width: 200px;
+            border-radius: 20px;
+        }
+
+        .submitButton {
+            height: 50px;
+            width: 100px;
+            border-radius: 20px;
+            background-color: lightgreen;
+        }
+
+        h4 {
+            text-align: center;
+
+            span {
+                color: red;
+            }
+
+        }
+
+    }
+}

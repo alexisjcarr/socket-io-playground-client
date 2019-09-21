@@ -11,7 +11,7 @@ import {
 } from "recharts";
 
 const LineGraph = ({ data, threshold }) => (
-  <ResponsiveContainer height={400} width="70%">
+  <ResponsiveContainer height={400} width="100%">
     <LineChart data={data}>
       <ReferenceLine
         y={threshold}
@@ -21,7 +21,7 @@ const LineGraph = ({ data, threshold }) => (
       />
       <ReferenceLine
         y={0 - threshold}
-        label='Min Threshold'
+        label="Min Threshold"
         stroke="red"
         strokeDasharray="3 3"
       />

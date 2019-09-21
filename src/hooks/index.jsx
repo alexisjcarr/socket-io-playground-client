@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+
 import socketIOClient from "socket.io-client";
+import { toast } from "react-toastify";
 
 export const useSocket = serverURL => {
   const [endpoint] = useState(serverURL);
@@ -93,9 +95,7 @@ export const useSocket = serverURL => {
     socket.on("data", data => {
       console.log("client connected");
 
-      data.timestamp = new Date().toTimeString().split(' ')[0];
-
-      console.log(data);
+      data.timestamp = new Date().toTimeString().split(" ")[0];
 
       setData(prevData => [...prevData, data]);
 
@@ -226,10 +226,38 @@ export const useSocket = serverURL => {
       }
     });
 
-    // console.log(correcbarData);
-
-    return () => socket.close(); // prevents the spazzing out
+    return () => socket.close(); // effect cleanup
   }, [endpoint, data_, barData, correctedBarData]);
 
   return [data_, correctedBarData];
+};
+
+export const useThreshold = data => {
+  const [threshold, setThreshold] = useState();
+  const [input, setInput] = useState("");
+
+  const handleThresholdSubmit = event => {
+    event.preventDefault();
+    setThreshold(Number(input));
+    setInput("");
+  };
+
+  const handleChange = event => {
+    setInput(event.target.value);
+  };
+
+  useEffect(() => {
+    if (data.length > 1) {
+      if (
+        Math.abs(data[data.length - 1].value) > 0 &&
+        Math.abs(data[data.length - 1].value) > threshold
+      ) {
+        toast.error(
+          `${data[data.length - 1].value} exceeds the specified threshold range of -${threshold} to ${threshold}`
+        );
+      }
+    }
+  }, [data, threshold]);
+
+  return [threshold, handleChange, handleThresholdSubmit, toast, input];
 };
