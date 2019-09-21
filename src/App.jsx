@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSocket } from "./hooks";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import LineGraph from "./components/LineGraph";
 import BarGraph from "./components/BarGraph";
@@ -27,9 +30,27 @@ const App = () => {
     setInput(event.target.value);
   };
 
+  useEffect(() => {
+    if (data.length > 1) {
+      if (
+        Math.abs(data[data.length - 1].value) > 0 &&
+        Math.abs(data[data.length - 1].value) > threshold
+      ) {
+        toast.error(
+          `Alert threshold!!!
+          ${data[data.length - 1].value} exceeds the specified threshold range of -${threshold} to ${threshold}`
+        );
+      }
+    }
+  }, [data, threshold]);
+
   return (
-    <div>
+    <>
       <div style={styles}>
+        <ToastContainer
+          position={toast.POSITION.BOTTOM_RIGHT}
+          hideProgressBar={true}
+        />
         <LineGraph data={data} threshold={threshold} />
         <Form
           data={data}
@@ -40,7 +61,7 @@ const App = () => {
         />
       </div>
       <BarGraph data={barData} />
-    </div>
+    </>
   );
 };
 

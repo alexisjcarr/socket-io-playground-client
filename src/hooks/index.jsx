@@ -92,7 +92,11 @@ export const useSocket = serverURL => {
     const socket = socketIOClient(endpoint);
     socket.on("data", data => {
       console.log("client connected");
-      
+
+      data.timestamp = new Date().toTimeString().split(' ')[0];
+
+      console.log(data);
+
       setData(prevData => [...prevData, data]);
 
       switch (true) {

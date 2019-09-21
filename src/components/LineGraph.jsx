@@ -21,7 +21,7 @@ const LineGraph = ({ data, threshold }) => (
       />
       <ReferenceLine
         y={0 - threshold}
-        label="Min Threshold"
+        label='Min Threshold'
         stroke="red"
         strokeDasharray="3 3"
       />
