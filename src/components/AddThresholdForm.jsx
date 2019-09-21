@@ -1,55 +1,59 @@
-import React, { useState } from "react";
+import React from "react";
 
 const styles = {
-  height: "200px",
-  width: "900px",
-  borderRadius: "20px",
-  fontSize: "50px"
+  //display: "flex",
+  //flexDirection: "column",
+  height: "50px",
+  width: "200px",
+  borderRadius: "20px"
+  //fontSize: "50px"
 };
 
-const AddThresholdForm = ({ data, threshold, handleThresholdChange }) => {
-  console.log(data.length > 1 ? data[data.length - 1]["value"] : null);
-  //const [threshold, setThreshold] = useState(NaN);
-
-  // const handleThresholdChange = event => {
-  //   setThreshold(event.target.value);
-  // };
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    console.log("threshold: ", threshold);
-  };
-
+const AddThresholdForm = ({
+  data,
+  threshold,
+  handleThresholdSubmit,
+  handleChange,
+  input
+}) => {
   return (
     <form
-      onSubmit={event => handleSubmit(event)}
-      style={{ textAlign: "center" }}
+      onSubmit={event => handleThresholdSubmit(event)}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center"
+        //alignItems: "center"
+      }}
     >
-      <input
-        placeholder="Enter a threshold between 0 and 100"
-        type="text"
-        onChange={event => handleThresholdChange(event)}
-        style={styles}
-      />
+      <div>
+        <input
+          placeholder="Enter a threshold between 0 and 100"
+          type="text"
+          onChange={handleChange}
+          style={styles}
+          value={input}
+        />
+        <button
+          type="submit"
+          style={{
+            height: "50px",
+            width: "100px",
+            borderRadius: "20px",
+            backgroundColor: "lightgreen"
+            //fontSize: "30px"
+          }}
+        >
+          Submit
+        </button>
+      </div>
       <button
-        type="submit"
         style={{
-          height: "200px",
-          width: "200px",
-          borderRadius: "20px",
-          backgroundColor: "lightgreen",
-          fontSize: "30px"
-        }}
-      >
-        Submit
-      </button>
-      <button
-        style={{
-          height: "200px",
-          width: "500px",
-          borderRadius: "20px",
+          height: "50px",
+          width: "310px",
+          borderRadius: "20px"
           // backgroundColor: "lightgreen",
-          fontSize: "30px"
+          //fontSize: "30px"
         }}
       >
         {data.length > 1 ? (

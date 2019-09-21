@@ -1,49 +1,45 @@
-import React, { useState, useEffect } from "react";
-import socketIOClient from "socket.io-client";
+import React, { useState } from "react";
+import { useSocket } from "./hooks";
+
 import LineGraph from "./components/LineGraph";
 import BarGraph from "./components/BarGraph";
 import Form from "./components/AddThresholdForm";
-import getBarData from "./getBarData";
 
 import "./App.css";
 
 const styles = {
   display: "flex",
-  flexDirection: "row",
-  justifyContent: "center"
+  flexDirection: "row"
 };
 
 const App = () => {
-  const [endpoint] = useState("https://just-for-practice.herokuapp.com/");
-  const [data, setData] = useState([]);
-  const [barData, setBarData] = useState([]);
+  const [data, barData] = useSocket("https://just-for-practice.herokuapp.com/");
   const [threshold, setThreshold] = useState(NaN);
+  const [input, setInput] = useState("");
 
-  const handleThresholdChange = event => {
-    setThreshold(event.target.value);
+  const handleThresholdSubmit = event => {
+    event.preventDefault();
+    setThreshold(Number(input));
+    setInput("");
   };
 
-  useEffect(() => {
-    const socket = socketIOClient(endpoint);
-    socket.on("data", data => {
-      console.log("client connected");
-      setBarData(prevData => [...prevData, ...getBarData(data)]);
-      setData(prevData => [...prevData, data]);
-    });
-    return () => socket.close(); // prevents the spazzing out
-  }, [endpoint, data, barData]);
+  const handleChange = event => {
+    setInput(event.target.value);
+  };
 
   return (
     <div>
-      <div>
+      <div style={styles}>
         <LineGraph data={data} threshold={threshold} />
-        {/* <BarGraph data={barData} /> */}
         <Form
           data={data}
           threshold={threshold}
-          handleThresholdChange={handleThresholdChange}
+          handleThresholdSubmit={handleThresholdSubmit}
+          handleChange={handleChange}
+          input={input}
         />
       </div>
+      <BarGraph data={barData} />
     </div>
   );
 };

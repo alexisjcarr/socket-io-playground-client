@@ -6,12 +6,13 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  ReferenceLine
+  ReferenceLine,
+  ResponsiveContainer
 } from "recharts";
 
-const LineGraph = ({ data, threshold }) => {
-  return (
-    <LineChart width={2000} height={800} data={data}>
+const LineGraph = ({ data, threshold }) => (
+  <ResponsiveContainer height={400} width="70%">
+    <LineChart data={data}>
       <ReferenceLine
         y={threshold}
         label="Max Threshold"
@@ -30,7 +31,7 @@ const LineGraph = ({ data, threshold }) => {
       <XAxis dataKey="timestamp" />
       <YAxis />
     </LineChart>
-  );
-};
+  </ResponsiveContainer>
+);
 
 export default LineGraph;
