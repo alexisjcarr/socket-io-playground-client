@@ -4,8 +4,8 @@ import { useSocket, useThreshold } from "../../hooks";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import LineGraph from "../Graphs/Line";
-import BarGraph from "../Graphs/Bar";
+import LineGraph from "../Line";
+import BarGraph from "../Bar";
 import Form from "../Form";
 
 import "./App.scss";

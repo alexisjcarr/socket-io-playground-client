@@ -5,6 +5,9 @@ import Line from ".";
 
 describe("<Line />", () => {
   it("matches snapshot", () => {
+    const originalError = console.warn;
+    console.warn = jest.fn();
     expect(render(<Line />)).toMatchSnapshot();
+    console.warn = originalError;
   });
 });

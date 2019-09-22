@@ -30,8 +30,8 @@ const Form = ({ threshold, handleThresholdSubmit, handleChange, input }) => (
 
 Form.propTypes = {
   threshold: PropTypes.number,
-  handleThresholdSubmit: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  handleThresholdSubmit: PropTypes.func,
+  handleChange: PropTypes.func,
   input: PropTypes.string
 };
 
