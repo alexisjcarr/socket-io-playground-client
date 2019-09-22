@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
   BarChart,
   Bar,
@@ -20,5 +21,14 @@ const BarGraph = ({ data }) => (
     </BarChart>
   </ResponsiveContainer>
 );
+
+BarGraph.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      value: PropTypes.number.isRequired
+    })
+  )
+};
 
 export default BarGraph;

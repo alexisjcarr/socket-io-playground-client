@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
   LineChart,
   Line,
@@ -33,5 +34,15 @@ const LineGraph = ({ data, threshold }) => (
     </LineChart>
   </ResponsiveContainer>
 );
+
+LineGraph.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      timestamp: PropTypes.string.isRequired,
+      value: PropTypes.number.isRequired
+    })
+  ),
+  threshold: PropTypes.number
+};
 
 export default LineGraph;
