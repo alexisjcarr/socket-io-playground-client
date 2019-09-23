@@ -6,7 +6,7 @@
   </a>
 </p>
 
-You can find the deployed project at [realtime-viz-practice.surge.sh](http://realtime-viz-practice.surge.sh).
+You can find the deployed project at [realtime-viz-practice.surge.sh](http://realtime-viz-practice.surge.sh)
 
 ## Author
 
@@ -62,7 +62,7 @@ Charts should be updated in real time. **Please**, consider code style best prac
 
 ![](iphone.png)
 
-5.  and mobile for when you need to monitor your data on the go.
+5.  ... and mobile for when you need to monitor your data on the go.
 
 ## Tech Stack
 
