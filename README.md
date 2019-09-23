@@ -54,7 +54,7 @@ Charts should be updated in real time. **Please**, consider code style best prac
 
 1. A real-time time series chart so that the user can see the data values as they come in. Now with visualized user provided threshold range.
 2. A histogram so that the user can visualize the count distribution of the different readings.
-3. Real-time lerts for when the user's readings exceed the threshold range
+3. Real-time alerts for when the user's readings exceed the threshold range
 
 ![](ipad.png)
 
@@ -62,7 +62,7 @@ Charts should be updated in real time. **Please**, consider code style best prac
 
 ![](iphone.png)
 
-5.  ... and mobile for when you need to monitor your data on the go.
+5.  ... and mobile for when the user needs to monitor their data on the go.
 
 ## Tech Stack
 
@@ -70,37 +70,41 @@ Charts should be updated in real time. **Please**, consider code style best prac
 
 #### React bootstrapped with Create React App
 
-Create React App is a wonderful build tool with all of the webpack and babel configuration taken care of out of the box, so that the developer can focus on code.
+Create React App is a wonderful utility with all of the build tools preconfigured out of the box. This way, the developer can spend more time focusing on the code.
 
-I know that at Corva (and in the industry as a whole) that isomorphic apps are becoming more popular. If time were permitting, I would migrate this project to a SSR build-tool such as Next.js or Razzle.
+I know that at Corva (and in the industry as a whole) that isomorphic/SSR apps are becoming more popular. If time were permitting, I would migrate this project to a SSR utility such as Next.js or Razzle.
 
 #### React Hooks
 
-Cleaner code than that used with classical components.
-
-Can abstract away a lot of state by using custom hooks.
+React hooks allowed for me to write relatively clean code by abstracting away a lot of state and app logic via custom hooks.
 
 #### Recharts
 
-I tested many packages for graphing and this one was the one with the most intuitive API. If time were permitting, I would migrate over to the Highcharts API.
+I tested many charting packages and this one was the one with the most intuitive API.
+
+If time were permitting, I would migrate over to the Highcharts API in order to more closely mimic what Corva uses.
 
 #### React Toastify
 
-Most popular React toast/snackbar package with intuitive API.
+A popular React toast/snackbar package with a very easy and intuitive API.
 
 ## Testing
 
 #### Enzyme
 
-Standard React testing tool.
+Enzyme is a React testing library that makes it easier to test React Components' output.
+
+Used primarily to test that the parent App component was rendering all of its child components.
 
 #### React Testing Library
 
-Testing from the user standpoint. Forces you to think about testing in a different way.
+Testing from the user standpoint. "The more your tests resemble the way your software is used, the more confidence they can give you."
+
+Used for snapshot testing and to test the functionality of the user input form component.
 
 #### PropTypes
 
-Though not explicitly a testing library, this is a good way to check the flow of data through your app during development runtime.
+Used for runtime type checking for React props.
 
 # How to Use
 

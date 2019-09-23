@@ -3,10 +3,17 @@ import { useState, useEffect } from "react";
 import socketIOClient from "socket.io-client";
 import { toast } from "react-toastify";
 
+// NOTE: Were this app to grow, I would have group the custom hooks in files that pertained to their functionality (i.e. auth related hooks would be in their own file).
+
+/*=== useSocket takes in the websocket server URL (which I deployed using Heroku) and returns the barData and data for the line chart ===*/
+
 export const useSocket = serverURL => {
   const [endpoint] = useState(serverURL);
   const [data_, setData] = useState([]);
   const [correctedBarData, setCorrectedBarData] = useState();
+  // there was a strange bug where after setBarData ran, a numeric element was added to the state. I used this hook after every setBarData call to keep the state at the same length.
+
+  // I know it's good practice to keep state relatively flat, but this was the format that the Recharts API requires for bar charts.
   const [barData, setBarData] = useState([
     {
       name: "[-100, -90]",
@@ -93,7 +100,7 @@ export const useSocket = serverURL => {
   useEffect(() => {
     const socket = socketIOClient(endpoint);
     socket.on("data", data => {
-      console.log("client connected");
+      // console.log("client connected");
 
       data.timestamp = new Date().toTimeString().split(" ")[0];
 
@@ -231,6 +238,8 @@ export const useSocket = serverURL => {
 
   return [data_, correctedBarData];
 };
+
+/*=== useThreshold allowed for me to abstract away both the controlled form component behavior and the programmatic rendering of the toast. Returns the controlled form functions, the threshold, toast and user input. ===*/
 
 export const useThreshold = data => {
   const [threshold, setThreshold] = useState();
