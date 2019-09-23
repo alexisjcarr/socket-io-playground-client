@@ -90,6 +90,10 @@ Most popular React toast/snackbar package with intuitive API.
 
 ## Testing
 
+#### Enzyme
+
+Standard React testing tool.
+
 #### React Testing Library
 
 Testing from the user standpoint. Forces you to think about testing in a different way.
