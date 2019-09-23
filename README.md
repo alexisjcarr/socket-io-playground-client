@@ -68,33 +68,33 @@ Charts should be updated in real time. **Please**, consider code style best prac
 
 ### Front end built using:
 
-#### React bootstrapped with `Create React App`
+#### React bootstrapped with Create React App
 
 Create React App is a wonderful build tool with all of the webpack and babel configuration taken care of out of the box, so that the developer can focus on code.
 
 I know that at Corva (and in the industry as a whole) that isomorphic apps are becoming more popular. If time were permitting, I would migrate this project to a SSR build-tool such as Next.js or Razzle.
 
-#### `React Hooks`
+#### React Hooks
 
 Cleaner code than that used with classical components.
 
 Can abstract away a lot of state by using custom hooks.
 
-#### `Recharts`
+#### Recharts
 
 I tested many packages for graphing and this one was the one with the most intuitive API. If time were permitting, I would migrate over to the Highcharts API.
 
-#### `React Toastify`
+#### React Toastify
 
 Most popular React toast/snackbar package with intuitive API.
 
 ## Testing
 
-#### `React Testing Library`
+#### React Testing Library
 
 Testing from the user standpoint. Forces you to think about testing in a different way.
 
-#### `PropTypes`
+#### PropTypes
 
 Though not explicitly a testing library, this is a good way to check the flow of data through your app during development runtime.
 
