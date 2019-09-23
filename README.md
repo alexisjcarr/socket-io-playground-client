@@ -6,7 +6,6 @@
   </a>
 </p>
 
-
 You can find the deployed project at [realtime-viz-practice.surge.sh](http://realtime-viz-practice.surge.sh).
 
 ## Author
@@ -26,7 +25,7 @@ Give a ⭐️ if this project helped you!
 
 You have a server which returns random numbers via WebSocket ([socket.io](https://socket.io)) connection.
 
-You should implement the next:
+You should implement the following:
 
 1. A line chart:
    - **x-axis**: time of a received number (look at `timestamp` payload field)
@@ -52,26 +51,52 @@ Charts should be updated in real time. **Please**, consider code style best prac
 ## Key Features
 
 ![](demo.gif)
-![](ipad.png) ![](iphone.png)
+
+1. A real-time time series chart so that the user can see the data values as they come in. Now with visualized user provided threshold range.
+2. A histogram so that the user can visualize the count distribution of the different readings.
+3. Real-time lerts for when the user's readings exceed the threshold range
+
+![](ipad.png)
+
+4. Responsive for both tablet...
+
+![](iphone.png)
+
+5.  and mobile for when you need to monitor your data on the go.
 
 ## Tech Stack
 
 ### Front end built using:
 
-#### React bootstrapped with `Create React App`.
+#### React bootstrapped with `Create React App`
 
-🚫 Why did you choose this framework?
+Create React App is a wonderful build tool with all of the webpack and babel configuration taken care of out of the box, so that the developer can focus on code.
 
--    point one
--    point two
--    point three
--    point four
+I know that at Corva (and in the industry as a whole) that isomorphic apps are becoming more popular. If time were permitting, I would migrate this project to a SSR build-tool such as Next.js or Razzle.
 
-🚫List the rest of the front end features and libraries in the same format as the framework above.
+#### `React Hooks`
+
+Cleaner code than that used with classical components.
+
+Can abstract away a lot of state by using custom hooks.
+
+#### `Recharts`
+
+I tested many packages for graphing and this one was the one with the most intuitive API. If time were permitting, I would migrate over to the Highcharts API.
+
+#### `React Toastify`
+
+Most popular React toast/snackbar package with intuitive API.
 
 ## Testing
 
-🚫Document what you used for testing and why
+#### `React Testing Library`
+
+Testing from the user standpoint. Forces you to think about testing in a different way.
+
+#### `PropTypes`
+
+Though not explicitly a testing library, this is a good way to check the flow of data through your app during development runtime.
 
 # How to Use
 
@@ -100,12 +125,13 @@ When contributing to this repository, please first discuss the change you wish t
 Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
 ## Issue/Bug Request
-   
- **If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
- - Check first to see if your issue has already been reported.
- - Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
- - Create a live example of the problem.
- - Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes,  where you believe the issue is originating from, and any potential solutions you have considered.
+
+**If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
+
+- Check first to see if your issue has already been reported.
+- Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
+- Create a live example of the problem.
+- Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes, where you believe the issue is originating from, and any potential solutions you have considered.
 
 ### Feature Requests
 
