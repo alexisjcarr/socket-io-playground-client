@@ -1,4 +1,4 @@
-<h1 align="center">corva.ai react-task-client 👋</h1>
+<h1 align="center"> realtime data renderer 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://twitter.com/THEAlexisCarr">
